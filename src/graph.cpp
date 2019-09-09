@@ -6,6 +6,8 @@ Graph::Graph(int v)
 
   adj = new list<int>[V];
   vertices = new vector<vertex>[V];
+
+  adj_matrix = new vector<vector<int>>(V, vector<int>(V, 0));
 }
 
 void Graph::addEdge(int v1, int v2)
@@ -46,11 +48,17 @@ int Graph::get_V()
   return this->V;
 }
 
+void Graph::displayVertices()
+{
+  for(int i = 0; i < V; i++)
+    cout << i << ":\t" << (*vertices).at(i) << endl;
+}
+
 void Graph::displayGraph()
 {
   for (int i = 0; i < V; i++)
   {
-    cout << i << " [" <<  vertices->at(i) << "]\t--> ";
+    cout << i << " -->";
 
     list<int>::iterator j;
     for(j = adj[i].begin(); j != adj[i].end(); ++j)
@@ -59,7 +67,29 @@ void Graph::displayGraph()
   }
 }
 
+void Graph::displayGraph_matrix()
+{
+  int i, j;
+  for(i = 0; i < V; i++)
+  {
+    for(j = 0; j < V; j++)
+      cout << (*adj_matrix).at(i).at(j) << ' ';
+    cout << endl;
+  }
+}
+
 void Graph::assign_vertices(vector<vertex> ass_vec)
 {
   vertices->assign(ass_vec.begin(), ass_vec.end());
+}
+
+void Graph::assign_matrix(vector<vector<edge>> ass_mat)
+{
+  for(int i = 0; i < V; i++)
+    (*adj_matrix)[i].assign(ass_mat[i].begin(), ass_mat[i].end());
+}
+
+void Graph::matrix2list()
+{
+  
 }

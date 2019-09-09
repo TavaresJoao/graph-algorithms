@@ -28,6 +28,22 @@ Graph import_data(string input_src)
   grafo.assign_vertices(data);
 
   // get adjacency matrix
+  int i, j;
+  vector<vector<int>> matrix(N, vector<int>(N));
+
+  for(i = 0; i < N; i++)
+    for(j = 0; j < N; j++)
+      input_file >> matrix[i][j];
+  input_file >> buffer;
+
+  /*cout << "matrix::" << endl;
+  for(i = 0; i < N; i++)
+  {
+    for(j = 0; j < N; j++)
+      cout << matrix.at(i).at(j) << " ";
+    cout << endl;
+  }*/
+  grafo.assign_matrix(matrix);
 
   // fechar o arquivo
   input_file.close();

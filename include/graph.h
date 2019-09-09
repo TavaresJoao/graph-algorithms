@@ -8,6 +8,7 @@
 using namespace std;
 
 typedef string vertex;
+typedef int edge;
 
 /*  Graph class  represents a directed graph
 *   using adjacency list representation and
@@ -24,6 +25,9 @@ class Graph
   // adjacency list
   list<int> *adj;
 
+  // adjacency matrix
+  vector<vector<edge>> *adj_matrix;
+
 public:
   // constructor
   Graph(int v);
@@ -37,11 +41,23 @@ public:
   // depth first search (DFS) tree of vertices reacheable from v
   void DFS(int v);
 
+  //
+  void displayVertices();
+
   // function to display adjacency list of the graph
   void displayGraph();
 
+  //
+  void displayGraph_matrix();
+
   // function to assign vertices
   void assign_vertices(vector<vertex> ass_vec);
+
+  //
+  void assign_matrix(vector<vector<edge>> ass_mat);
+
+  // tranfers matrix data to adjacency list
+  void matrix2list();
 
 private:
   void DFS_Util(int v, bool visited[]);

@@ -37,6 +37,8 @@ int main(int argc, char const *argv[])
   */
   Graph grafo = import_data(argv[1]);
 
+  grafo.displayVertices();
+  grafo.displayGraph_matrix();
   grafo.displayGraph();
 
   return 0;
