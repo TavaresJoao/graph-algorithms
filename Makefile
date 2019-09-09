@@ -40,6 +40,7 @@ $(BINDIR):
 
 $(OBJS): $(OBJDIR) $(SRC)
 	$(CXX) $(CPPFLAGS) -c src/graph.cpp -o obj/graph.o
+	$(CXX) $(CPPFLAGS) -c src/files.cpp -o obj/files.o
 	$(CXX) $(CPPFLAGS) -c src/main.cpp -o obj/main.o
 
 $(OBJDIR):

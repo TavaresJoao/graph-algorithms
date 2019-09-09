@@ -38,3 +38,21 @@ void Graph::DFS(int v)
   // call the recursive helper function to print DFS traversal
   DFS_Util(v, visited);
 }
+
+int Graph::get_V()
+{
+  return this->V;
+}
+
+void Graph::displayGraph()
+{
+  for (int i = 0; i < V; i++)
+  {
+    cout << i << "--> ";
+
+    list<int>::iterator j;
+    for(j = adj[i].begin(); j != adj[i].end(); ++j)
+      cout << '\t' << *j;
+    cout << endl;
+  }
+}

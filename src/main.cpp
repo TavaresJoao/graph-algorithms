@@ -21,6 +21,7 @@ int main(int argc, char const *argv[])
 
   input_file.close();
   */
+  /*
   Graph g(4);
   g.addEdge(0, 1);
   g.addEdge(0, 2);
@@ -33,6 +34,10 @@ int main(int argc, char const *argv[])
             " (starting from vertex 2) \n";
   g.DFS(2);
   cout << endl;
+  */
+  Graph grafo = import_data(argv[1]);
+
+  grafo.displayGraph();
 
   return 0;
 }

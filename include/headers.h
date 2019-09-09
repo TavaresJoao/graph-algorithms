@@ -5,6 +5,7 @@
 #include <fstream>
 
 #include "graph.h"
+#include "files.h"
 
 using namespace std;
 
