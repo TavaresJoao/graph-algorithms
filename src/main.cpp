@@ -41,5 +41,9 @@ int main(int argc, char const *argv[])
   grafo.displayGraph_matrix();
   grafo.displayGraph();
 
+  cout << "Following is Depth First Traversal"
+            " (starting from vertex 20 [Porecatu]) \n";
+  grafo.DFS(20);
+
   return 0;
 }

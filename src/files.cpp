@@ -44,6 +44,7 @@ Graph import_data(string input_src)
     cout << endl;
   }*/
   grafo.assign_matrix(matrix);
+  grafo.matrix2list();
 
   // fechar o arquivo
   input_file.close();

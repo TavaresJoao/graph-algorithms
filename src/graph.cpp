@@ -91,5 +91,13 @@ void Graph::assign_matrix(vector<vector<edge>> ass_mat)
 
 void Graph::matrix2list()
 {
-  
+  int i, j;
+  for(i = 0; i < V; i++)
+  {
+    for(j = 0; j < V; j++)
+    {
+      if((*adj_matrix).at(i).at(j)==1)
+        addEdge(i, j);
+    }
+  }
 }
