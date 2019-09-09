@@ -101,3 +101,37 @@ void Graph::matrix2list()
     }
   }
 }
+
+vector<int> Graph::depth(int v_orig, int v_dest)
+{
+  // create color vector and print it of white
+  vector<int> color(V, WHITE_COLOR);
+
+  // crate path vector
+  vector<int> path;
+  vector<int> search_path;
+
+  // depth serach from v_orig vertex to find v_dest
+  searchD(v_orig, v_dest, &color, &path);
+
+  vector<int>::iterator found = find(path.begin(), path.end(), v_dest);
+  if(found != path.end()) // found
+    search_path.assign(path.begin(), ++found);
+
+  return search_path;
+}
+
+void Graph::searchD(int u, int v_dest, vector<int> *color, vector<int> *path)
+{
+  (*color)[u] = YELLOW_COLOR;
+  (*path).push_back(u);
+
+  list<int>::iterator i;
+  for(i = adj[u].begin(); i != adj[u].end(); ++i)
+  {
+    if((*color).at(*i) == WHITE_COLOR)
+      searchD(*i, v_dest, color, path);
+  }
+
+  (*color)[u] = RED_COLOR;
+}

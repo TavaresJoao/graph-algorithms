@@ -4,11 +4,16 @@
 #include <iostream>
 #include <list>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 typedef string vertex;
 typedef int edge;
+
+#define WHITE_COLOR   0
+#define YELLOW_COLOR  1
+#define RED_COLOR     2
 
 /*  Graph class  represents a directed graph
 *   using adjacency list representation and
@@ -59,8 +64,15 @@ public:
   // tranfers matrix data to adjacency list
   void matrix2list();
 
+  //
+  vector<int> depth(int v_orig, int v_dest);
+
 private:
+  //
   void DFS_Util(int v, bool visited[]);
+
+  //
+  void searchD(int u, int v_dest, vector<int> *color, vector<int> *path);
 };
 
 
