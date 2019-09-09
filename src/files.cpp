@@ -22,8 +22,39 @@ Graph import_data(string input_src)
   Graph grafo(N);
 
   // get vertices
+  getline(input_file, line);
+  vector<string> data = split(line, ',');
+
+  grafo.assign_vertices(data);
 
   // get adjacency matrix
 
+  // fechar o arquivo
+  input_file.close();
+
   return grafo;
+}
+
+const vector<string> split(const string& s, const char& delimiter)
+{
+  string buff{""};
+  vector<string> v;
+
+  for(auto n:s)
+  {
+    if( n != delimiter )
+      buff += n;
+    else
+    {
+      if( buff != "" )
+      {
+        v.push_back(buff);
+        buff="";
+      }
+    }
+  }
+  if(buff != "")
+    v.push_back(buff);
+
+  return v;
 }

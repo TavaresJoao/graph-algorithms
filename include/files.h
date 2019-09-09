@@ -10,5 +10,6 @@
 using namespace std;
 
 Graph import_data(string input_src);
+const vector<string> split(const string& s, const char& delimiter);
 
 #endif //FILES_H_INCLUDED

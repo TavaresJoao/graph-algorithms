@@ -3,7 +3,9 @@
 Graph::Graph(int v)
 {
   this->V = v;
+
   adj = new list<int>[V];
+  vertices = new vector<vertex>[V];
 }
 
 void Graph::addEdge(int v1, int v2)
@@ -48,11 +50,16 @@ void Graph::displayGraph()
 {
   for (int i = 0; i < V; i++)
   {
-    cout << i << "--> ";
+    cout << i << " [" <<  vertices->at(i) << "]\t--> ";
 
     list<int>::iterator j;
     for(j = adj[i].begin(); j != adj[i].end(); ++j)
       cout << '\t' << *j;
     cout << endl;
   }
+}
+
+void Graph::assign_vertices(vector<vertex> ass_vec)
+{
+  vertices->assign(ass_vec.begin(), ass_vec.end());
 }

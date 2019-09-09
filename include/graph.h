@@ -3,8 +3,11 @@
 
 #include <iostream>
 #include <list>
+#include <vector>
 
 using namespace std;
+
+typedef string vertex;
 
 /*  Graph class  represents a directed graph
 *   using adjacency list representation and
@@ -14,6 +17,9 @@ class Graph
 {
   // number of vetex
   int V;
+
+  // vertices
+  vector<vertex> *vertices;
 
   // adjacency list
   list<int> *adj;
@@ -33,6 +39,9 @@ public:
 
   // function to display adjacency list of the graph
   void displayGraph();
+
+  // function to assign vertices
+  void assign_vertices(vector<vertex> ass_vec);
 
 private:
   void DFS_Util(int v, bool visited[]);
